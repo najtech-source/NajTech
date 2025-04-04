@@ -4512,3 +4512,227 @@ select.input-field:hover {
     align-items: center;
   }
 }
+
+/* Header Actions Responsiveness */
+@media (max-width: 768px) {
+  .date-time {
+    display: none; /* Hide date and time in mobile view */
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Adjust other header elements for better mobile layout */
+  .cart-btn {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .cart-count {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+  }
+
+  .header-action-btn {
+    font-size: 20px;
+  }
+}
+
+/* Desktop view styles */
+@media (min-width: 769px) {
+  .date-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 15px;
+    background: linear-gradient(45deg, 
+      #ff0000,
+      #ff8c00,
+      #00ff00,
+      #0000ff
+    );
+    background-size: 300% 300%;
+    border-radius: 8px;
+    color: white;
+    font-family: var(--ff-league_spartan);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-600);
+    animation: gradientAnimation 8s ease infinite;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  #current-date {
+    font-size: var(--fs-7);
+    opacity: 0.9;
+  }
+
+  #current-time {
+    font-size: var(--fs-6);
+    font-weight: var(--fw-700);
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+}
+
+/* Base styles for header actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto;
+}
+
+/* Date and Time styles */
+.date-time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 15px;
+  background: linear-gradient(45deg, 
+    #ff0000,
+    #ff8c00,
+    #00ff00,
+    #0000ff
+  );
+  background-size: 300% 300%;
+  border-radius: 8px;
+  color: white;
+  font-family: var(--ff-league_spartan);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-600);
+  animation: gradientAnimation 8s ease infinite;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#current-date {
+  font-size: var(--fs-7);
+  opacity: 0.9;
+}
+
+#current-time {
+  font-size: var(--fs-6);
+  font-weight: var(--fw-700);
+}
+
+/* Visitor count styles */
+.visitor-count {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  background: #4CAF50;
+  border-radius: 8px;
+  color: white;
+  font-family: var(--ff-league_spartan);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-600);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Cart button styles */
+.cart-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 15px;
+  background: #0984e3;
+  color: white;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .header .container {
+    padding: 10px 15px;
+  }
+
+  /* Hide date-time and visitor count on mobile */
+  .date-time,
+  .visitor-count {
+    display: none !important;
+  }
+
+  /* Adjust header actions spacing */
+  .header-actions {
+    gap: 10px;
+  }
+
+  /* Adjust cart button size */
+  .cart-btn {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .cart-count {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    top: -6px;
+    right: -6px;
+  }
+
+  /* Adjust menu button */
+  .header-action-btn {
+    font-size: 24px;
+    padding: 8px;
+  }
+
+  /* Logo adjustments */
+  .logo img {
+    width: 45px;
+    height: 35px;
+  }
+
+  .name h1 {
+    font-size: 18px;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header-actions {
+    gap: 12px;
+  }
+
+  .date-time {
+    padding: 6px 12px;
+    font-size: var(--fs-7);
+  }
+
+  .visitor-count {
+    padding: 6px 12px;
+    font-size: var(--fs-7);
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1025px) {
+  .header-actions {
+    gap: 15px;
+  }
+
+  .date-time,
+  .visitor-count {
+    display: flex;
+  }
+}
+
+/* Animation */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
