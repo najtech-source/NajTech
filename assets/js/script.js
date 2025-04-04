@@ -191,3 +191,57 @@ sliderWrapper.addEventListener('mouseleave', () => {
 
 
 
+
+// Update date and time
+function updateDateTime() {
+  const now = new Date();
+  
+  // Format date
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const dateString = now.toLocaleDateString('en-US', options);
+  
+  // Format time
+  const timeString = now.toLocaleTimeString('en-US', { 
+    hour: '2-digit', 
+    minute: '2-digit',
+    second: '2-digit'
+  });
+  
+  // Update DOM
+  document.getElementById('current-date').textContent = dateString;
+  document.getElementById('current-time').textContent = timeString;
+}
+
+// Update immediately and then every second
+updateDateTime();
+setInterval(updateDateTime, 1000);
+
+
+
+
+
+
+
+// Visitor count functionality
+function updateVisitorCount() {
+  // Get current count from localStorage or initialize to 0
+  let count = localStorage.getItem('visitorCount') || 0;
+  
+  // Increment count
+  count = parseInt(count) + 1;
+  
+  // Save to localStorage
+  localStorage.setItem('visitorCount', count);
+  
+  // Update display
+  document.getElementById('visitor-count').textContent = count;
+}
+
+// Update visitor count when page loads
+updateVisitorCount();
+
+
+
+
+
+
