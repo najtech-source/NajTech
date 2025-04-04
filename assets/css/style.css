@@ -409,94 +409,155 @@ body {
   #HEADER
 \*-----------------------------------*/
 
-.header .btn {
-  display: none;
-}
-
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  /* background-color: var(--white); */
   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
   padding-block: 12px;
-  box-shadow: var(--shadow-1);
   z-index: 4;
+  transition: var(--transition-1);
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
 .header.active {
   position: fixed;
+  box-shadow: var(--shadow-1);
 }
 
-.header .container,
-.header-actions,
-.navbar .wrapper {
+/* Desktop Navbar */
+@media (min-width: 1200px) {
+  .header-action-btn:last-child,
+  .overlay {
+    display: none;
+  }
+
+  .navbar {
+    all: unset;
+    display: block;
+  }
+
+  .navbar .wrapper {
+    display: none;
+  }
+
+  .navbar-list {
+    display: flex;
+    gap: 30px;
+    padding: 0;
+  }
+
+  .navbar-item {
+    padding: 0;
+    border: none;
+  }
+
+  .navbar-link {
+    color: var(--white);
+    padding: 10px 0;
+    font-weight: var(--fw-500);
+    transition: var(--transition-1);
+  }
+
+  .navbar-link:is(:hover, :focus) {
+    color: var(--kappel);
+    transform: none;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+/* Mobile Navbar */
+@media (max-width: 1199px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    width: 100%;
+    max-width: 320px;
+    height: 100vh;
+    z-index: 2;
+    transition: 0.25s var(--cubic-in);
+    color: aliceblue;
+    overflow-y: auto;
+    padding-bottom: 20px;
+  }
+
+  .navbar.active {
+    transform: translateX(320px);
+    transition: 0.5s var(--cubic-out);
+  }
+
+  .navbar .wrapper {
+    padding: 15px 20px;
+    border-block-end: 1px solid var(--platinum);
+    position: sticky;
+    top: 0;
+    background: inherit;
+    z-index: 1;
+  }
+
+  .navbar-list {
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navbar-item {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-link {
+    color: var(--white);
+    padding: 10px 0;
+    font-weight: var(--fw-500);
+    transition: var(--transition-1);
+    display: block;
+    width: 100%;
+  }
+
+  .navbar-link:is(:hover, :focus) {
+    color: var(--kappel);
+    transform: translateX(10px);
+  }
+}
+
+/* Header Actions */
+.header-actions {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 15px;
 }
 
-
-
-.navbar {
-  position: fixed;
-  top: 0;
-  left: -320px;
-  /* background-color: var(--white); */
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  width: 100%;
-  max-width: 320px;
-  height: 100%;
-  z-index: 2;
-  transition: 0.25s var(--cubic-in);
-  color: aliceblue;
-}
-
-.navbar.active {
-  transform: translateX(320px);
-  transition: 0.5s var(--cubic-out);
-}
-
-.navbar .wrapper {
-  padding: 15px 20px;
-  border-block-end: 1px solid var(--platinum);
-}
-
-.nav-close-btn {
-  background-color: var(--white);
-  box-shadow: var(--shadow-2);
-  padding: 8px;
-  border-radius: var(--radius-circle);
-}
-
-.nav-close-btn:is(:hover, :focus) {
-  background-color: var(--kappel);
+.header-action-btn {
   color: var(--white);
-}
-
-.navbar-list {
-  padding: 15px 20px;
-}
-
-.navbar-item:not(:last-child) {
-  border-block-end: 1px solid var(--platinum);
-}
-
-.navbar-link {
-  color: var(--white) !important;
-  /* Force the color to white */
-  padding-block: 8px;
-  font-weight: var(--fw-500);
+  font-size: 24px;
   transition: var(--transition-1);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.navbar-link:is(:hover, :focus) {
-  color: var(--kappel) !important;
-  /* Optional hover color */
+.header-action-btn:is(:hover, :focus) {
+  color: var(--kappel);
 }
 
+/* Overlay */
 .overlay {
   position: fixed;
   inset: 0;
@@ -1780,29 +1841,48 @@ align-items: center;
 } */
 /* ...existing code... */
 
-/* Add styles for the temperature button */
+/* Temperature Button Styles */
 .temperature-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: var(--white);
+  background: var(--gradient);
+  border-radius: var(--radius-5);
+  transition: var(--transition-1);
+  min-width: 120px;
+  justify-content: center;
+}
+
+.temperature-btn .span {
   display: inline-block;
-  padding: 12px 20px;
-  font-size: 1rem;
-  text-align: center;
-  border-radius: 8px;
-  background-color: #007bff;
-  color: #fff;
-  text-decoration: none;
-  margin: 10px;
-  transition: all 0.3s ease;
+  font-size: 14px;
+  color: var(--white);
+}
+
+.temperature-btn ion-icon {
+  font-size: 18px;
+  color: var(--white);
 }
 
 .temperature-btn:hover {
-  background-color: #0056b3;
-  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2);
 }
 
+/* Hide temperature button in mobile view */
 @media (max-width: 768px) {
   .temperature-btn {
-    font-size: 0.9rem;
-    padding: 10px 16px;
+    display: none;
+  }
+}
+
+/* Show temperature button in desktop view */
+@media (min-width: 769px) {
+  .temperature-btn {
+    display: inline-flex;
   }
 }
 
@@ -1944,4 +2024,123 @@ align-items: center;
   .slider-btn ion-icon {
     font-size: 20px;
   }
+}
+
+/* Registration Form Styles */
+.registration {
+  padding: 60px 0;
+  position: relative;
+}
+
+.registration-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  background: var(--white);
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.registration-form::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff0000);
+  background-size: 400%;
+  border-radius: 12px;
+  z-index: -1;
+  animation: borderAnimation 15s linear infinite;
+  filter: blur(5px);
+}
+
+.registration-form::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--white);
+  border-radius: 10px;
+  z-index: -1;
+}
+
+@keyframes borderAnimation {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 300% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--raisin-black);
+  transition: all 0.3s ease;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--platinum);
+  border-radius: 5px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.input-field:focus {
+  border-color: var(--orange-web);
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
+}
+
+.input-field::placeholder {
+  color: var(--silver);
+}
+
+select.input-field {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 15px;
+  padding-right: 30px;
+}
+
+.registration-form .btn {
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.registration-form .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.registration-form .btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.registration-form .btn:hover::before {
+  left: 100%;
 }
