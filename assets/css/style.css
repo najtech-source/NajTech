@@ -478,10 +478,19 @@ body {
   }
 }
 
-/* Mobile Navbar */
+/* Mobile Menu Button */
 @media (max-width: 1199px) {
-  .header-action-btn:last-child {
-    display: flex;
+  .header-action-btn[data-nav-toggler] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 9999 !important;
+    position: relative !important;
+  }
+
+  .header-action-btn[data-nav-toggler] ion-icon {
+    font-size: 28px;
+    color: var(--white);
   }
 
   .navbar {
