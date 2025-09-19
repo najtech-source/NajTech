@@ -104,6 +104,144 @@
         display: flex;
         flex-direction: column;
     }
+
+    .developer-section {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+
+    .developer-content {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      min-height: 200px; /* Fixed minimum height */
+      width: 100%; /* Full width */
+      box-sizing: border-box; /* Include padding in width calculation */
+    }
+
+    .developer-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer;
+      flex-shrink: 0; /* Prevent image from shrinking */
+    }
+
+    .developer-info {
+      flex: 1;
+      min-width: 0; /* Allow text to wrap properly */
+    }
+
+    .developer-name {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .developer-role {
+      color: #888;
+      margin-bottom: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .developer-contact {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .developer-contact a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #0984e3;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .developer-contact a:hover {
+      color: #0770c2;
+    }
+
+    /* Add these styles for mobile sidebar logo */
+    @media (max-width: 768px) {
+      .navbar .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+
+      .navbar .logo img {
+        width: 50px;
+        height: 40px;
+        object-fit: contain;
+      }
+
+      .navbar .logo .name {
+        display: block;
+      }
+
+      .navbar .logo .name h1 {
+        font-size: 1.5rem;
+        color: var(--white);
+        margin: 0;
+      }
+    }
+
+    /* Add zoom effect for hero banner images */
+    .hero-banner .img-holder {
+      overflow: hidden;
+      border-radius: 10px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .hero-banner .img-cover {
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .hero-banner .img-holder:hover .img-cover {
+      transform: scale(1.1);
+    }
+
+    /* Add zoom effect for course card images */
+    .course-card .card-banner {
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .course-card .img-cover {
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .course-card:hover .img-cover {
+      transform: scale(1.1);
+    }
+
+    /* Add zoom effect for blog card images */
+    .blog-card .card-banner {
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .blog-card .img-cover {
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .blog-card:hover .img-cover {
+      transform: scale(1.1);
+    }
   </style>
 
 </head>
@@ -129,7 +267,7 @@
       <nav class="navbar" data-navbar>
         <div class="wrapper">
           <a href="#" class="logo">
-            <img src="./assets/images/logo.png" width="162" height="50" alt="NajTech logo">
+            <img src="./assets/images/ntlogo1.png" width="62" height="50" alt="NajTech logo" style="border:2px solid rgb(226, 177, 14) ; border-radius: 50%">
           </a>
 
           <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
@@ -209,7 +347,7 @@
             </h1>
 
             <p class="hero-text">
-              Solution Provider for computer Hardware and software           </p>
+              Solution Provider for computer Hardware and software.            </p>
 
             <a href="courses.html" class="btn" target="_blank">Find Courses</a>
 
@@ -218,11 +356,11 @@
           <figure class="hero-banner">
 
             <div class="img-holder one" style="--width: 270; --height: 300;">
-              <img src="/img/14.jpeg" width="270" height="300" alt="hero banner" class="img-cover">
+              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" width="270" height="300" alt="hero banner" class="img-cover">
             </div>
 
             <div class="img-holder two" style="--width: 240; --height: 370;">
-              <img src="/img/6.jpeg" width="240" height="370" alt="hero banner" class="img-cover">
+              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" width="240" height="370" alt="hero banner" class="img-cover">
             </div>
 
             <img src="./assets/images/number.png" width="380" height="190" alt="" class="shape hero-shape-1">
@@ -443,7 +581,7 @@
           <figure class="about-banner">
 
             <div class="img-holder" style="--width: 520; --height: 370;">
-              <img src="/img/2.jpeg" width="520" height="370" loading="lazy" alt="about banner"
+              <img src="img/2.jpeg" width="520" height="370" loading="lazy" alt="about banner"
                 class="img-cover">
             </div>
 
@@ -714,19 +852,19 @@
           <div class="slider-container">
             <div class="slider-wrapper">
               <div class="slide">
-                <img src="/img/2.jpeg" alt="Slide 1" class="slide-img">
+                <img src="img/2.jpeg" alt="Slide 1" class="slide-img">
             </div>
               <div class="slide">
-                <img src="/img/9.jpeg" alt="Slide 2" class="slide-img">
+                <img src="img/9.jpeg" alt="Slide 2" class="slide-img">
           </div>
               <div class="slide">
-                <img src="/img/11.jpeg" alt="Slide 3" class="slide-img">
+                <img src="img/11.jpeg" alt="Slide 3" class="slide-img">
         </div>
               <div class="slide">
-                <img src="/img/13.jpeg" alt="Slide 4" class="slide-img">
+                <img src="img/13.jpeg" alt="Slide 4" class="slide-img">
               </div>
               <div class="slide">
-                <img src="/img/1.jpeg" alt="Slide 5" class="slide-img">
+                <img src="img/1.jpeg" alt="Slide 5" class="slide-img">
               </div>
             </div>
 
@@ -820,7 +958,7 @@
               <div class="blog-card">
 
                 <figure class="card-banner img-holder has-after" style="--width: 370; --height: 370;">
-                  <img src="/img/10.jpeg" width="370" height="370" loading="lazy"
+                  <img src="img/10.jpeg" width="370" height="370" loading="lazy"
                     alt="NajTech Training Session" class="img-cover">
                 </figure>
 
@@ -865,7 +1003,7 @@
               <div class="blog-card">
 
                 <figure class="card-banner img-holder has-after" style="--width: 370; --height: 370;">
-                  <img src="/img/12.jpeg" width="370" height="370" loading="lazy"
+                  <img src="img/12.jpeg" width="370" height="370" loading="lazy"
                     alt="NajTech Software Development" class="img-cover">
                 </figure>
 
@@ -910,7 +1048,7 @@
               <div class="blog-card">
 
                 <figure class="card-banner img-holder has-after" style="--width: 370; --height: 370;">
-                  <img src="/img/9.jpeg" width="370" height="370" loading="lazy"
+                  <img src="img/9.jpeg" width="370" height="370" loading="lazy"
                     alt="NajTech Networking Session" class="img-cover">
                 </figure>
 
@@ -1172,11 +1310,40 @@
     </div>
 
     <div class="developer-section">
+
+ <div class="developer-content">
+        <img src="img/huz_img.jpg" alt="Website Developer" class="developer-image" onclick="openImageModal(this)">
+        <div class="developer-info">
+          <h3 class="developer-name">Md Huzaifa</h3><br>
+          <p class="developer-role">Full Stack Developer </p>
+          
+          <div class="developer-contact">
+            <a href="mailto:mdhuzaifsh786@gmail.com">
+              <ion-icon name="mail-outline"></ion-icon>
+              <span>Email</span>
+            </a>
+            <a href="https://github.com/MdHuzaifa018" target="_blank">
+              <ion-icon name="logo-github"></ion-icon>
+              <span>GitHub</span>
+            </a>
+            <!-- <a href="https://instagram.com/huzaifa" target="_blank">
+              <ion-icon name="logo-instagram"></ion-icon>
+              <span>Instagram</span> -->
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      
       <div class="developer-content">
         <img src="./assets/images/developer.JPEG" alt="Website Developer" class="developer-image" onclick="openImageModal(this)">
         <div class="developer-info">
           <h3 class="developer-name">Pushpanjay Patel</h3>
           <p class="developer-role">Full Stack Developer, cybersecurity Expert & Renowned Shooter</p>
+          
           <div class="developer-contact">
             <a href="mailto:pushpanjaypatel02766@gmail.com">
               <ion-icon name="mail-outline"></ion-icon>
@@ -1193,6 +1360,8 @@
           </div>
         </div>
       </div>
+
+     
     </div>
 
     <!-- Image Modal -->
